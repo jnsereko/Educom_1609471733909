@@ -22,7 +22,7 @@ import { properties } from "../../config/properties";
 
 class SchoolApiGenerated {
 
-  static contextUrl = properties.endpoint + "/school";
+  static contextUrl = properties.endpoint + "/schools";
 
   // CRUD METHODS
 

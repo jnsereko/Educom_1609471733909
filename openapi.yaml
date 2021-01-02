@@ -1148,6 +1148,23 @@ components:
       x-skaffolder-relations: 
       required:
         - _id
+    School:
+      x-skaffolder-id: 5ff0b02ea3e049112323989a
+      x-skaffolder-id-db: 5fee94e5a3e049112323945a
+      x-skaffolder-id-entity: 5ff0a6b3a3e049112323984a
+      x-skaffolder-url: /schools
+      properties:
+        _id:
+          type: string
+          x-skaffolder-required: true
+        schoolName:
+          type: string
+          x-skaffolder-id-attr: 5ff0a6b3a3e049112323984b
+          x-skaffolder-type: String
+          x-skaffolder-unique: true
+      x-skaffolder-relations: 
+      required:
+        - _id
     Student:
       x-skaffolder-id: 5fee9973a3e04911232394cb
       x-skaffolder-id-db: 5fee94e5a3e049112323945a
