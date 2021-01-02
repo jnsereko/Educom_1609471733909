@@ -28,6 +28,119 @@ let actionsFunction = {
 
   //CRUD METHODS
 
+  // Create class
+  createClass: function(class) {
+    return function(dispatch) {
+      return ClassApi
+        .createClass(class)
+        .then(class => {
+          dispatch(actionsFunction.createClassSuccess(class));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  createClassSuccess: function(class) {
+    return { type: types.CREATE_CLASS_SUCCESS, payload: class };
+  },
+
+
+  // Delete class
+  deleteClass: function(id) {
+    return function(dispatch) {
+      return ClassApi
+        .deleteClass(id)
+        .then(class => {
+          dispatch(actionsFunction.deleteClassSuccess(class));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  deleteClassSuccess: function(class) {
+    return { type: types.DELETE_CLASS_SUCCESS, payload: class };
+  },
+
+
+  // Find by classSubject
+  findByclassSubject: function(key) {
+    return function(dispatch) {
+      return ClassApi
+        .findByclassSubject(key)
+        .then(item => {
+          dispatch(actionsFunction.findByclassSubjectSuccess(item));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  findByclassSubjectSuccess: function(item) {
+    return { type: types.FINDBYCLASSSUBJECT_CLASS_SUCCESS, payload: item };
+  },
+
+
+  // Get class
+  loadClass: function(id) {
+    return function(dispatch) {
+      return ClassApi
+        .getOneClass(id)
+        .then(class => {
+          dispatch(actionsFunction.loadClassSuccess(class));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  loadClassSuccess: function(class) {
+    return { type: types.GET_CLASS_SUCCESS, payload: class };
+  },
+
+  // Load  list
+  loadClassList: function() {
+    return function(dispatch) {
+      return ClassApi
+        .getClassList()
+        .then(list => {
+          dispatch(actionsFunction.loadClassListSuccess(list));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  loadClassListSuccess: function(list) {
+    return { type: types.LIST_CLASS_SUCCESS, payload: list };
+  },
+
+	
+  // Save class
+  saveClass: function(class) {
+    return function(dispatch) {
+      return ClassApi
+        .saveClass(class)
+        .then(class => {
+          dispatch(actionsFunction.saveClassSuccess(class));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  saveClassSuccess: function(class) {
+    return { type: types.UPDATE_CLASS_SUCCESS, payload: class };
+  },
+
+
 };
 
 export default actionsFunction;

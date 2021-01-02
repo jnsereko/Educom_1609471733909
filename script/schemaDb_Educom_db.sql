@@ -9,6 +9,32 @@ USE `educom_db`;
 -- ENTITIES
 
 --
+-- Struttura della tabella `address`
+--
+
+CREATE TABLE IF NOT EXISTS `address` (
+	`Country` numeric ,
+	`Village` varchar(130)  NOT NULL,
+	`district` varchar(130)  NOT NULL,
+	
+	`_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT 
+
+);
+
+
+--
+-- Struttura della tabella `attendance`
+--
+
+CREATE TABLE IF NOT EXISTS `attendance` (
+	`date` date ,
+	
+	`_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT 
+
+);
+
+
+--
 -- Struttura della tabella `class`
 --
 
@@ -22,15 +48,119 @@ CREATE TABLE IF NOT EXISTS `class` (
 
 
 --
+-- Struttura della tabella `contact`
+--
+
+CREATE TABLE IF NOT EXISTS `contact` (
+	`RefFirstPhoneNo` varchar(130) ,
+	`firstPhoneNo` varchar(130) ,
+	`secondPhoneNo` varchar(130) ,
+	`socialMedia` varchar(130) ,
+	
+	`_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT 
+
+);
+
+
+--
+-- Struttura della tabella `marks`
+--
+
+CREATE TABLE IF NOT EXISTS `marks` (
+	`comment` varchar(130) ,
+	`value` numeric ,
+	
+	`_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT 
+
+);
+
+
+--
+-- Struttura della tabella `parent`
+--
+
+CREATE TABLE IF NOT EXISTS `parent` (
+	`address` varchar(130) ,
+	`contact` varchar(130) ,
+	`email` varchar(130) ,
+	`firstName` varchar(130) ,
+	`gender` varchar(130) ,
+	`lastName` varchar(130) ,
+	`nin` varchar(130) ,
+	
+	`_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT 
+
+);
+
+
+--
+-- Struttura della tabella `reportcard`
+--
+
+CREATE TABLE IF NOT EXISTS `reportcard` (
+	
+	`_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT 
+
+);
+
+
+--
+-- Struttura della tabella `school`
+--
+
+CREATE TABLE IF NOT EXISTS `school` (
+	`schoolName` varchar(130) ,
+	
+	`_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT 
+
+);
+
+
+--
 -- Struttura della tabella `student`
 --
 
 CREATE TABLE IF NOT EXISTS `student` (
+	`address` varchar(30) ,
+	`contact` varchar(30) ,
 	`dob` date ,
 	`email` varchar(130) ,
 	`firstName` varchar(130) ,
+	`gender` varchar(130) ,
 	`lastName` varchar(130) ,
-	`phoneNumber` numeric ,
+	
+	`_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT 
+
+);
+
+
+--
+-- Struttura della tabella `subject`
+--
+
+CREATE TABLE IF NOT EXISTS `subject` (
+	`subjectCode` varchar(130) ,
+	`subjectName` varchar(130) ,
+	
+	`_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT 
+
+);
+
+
+--
+-- Struttura della tabella `teacher`
+--
+
+CREATE TABLE IF NOT EXISTS `teacher` (
+	`address` varchar(30) ,
+	`administration` varchar(30) ,
+	`contact` varchar(30) ,
+	`dob` date ,
+	`email` varchar(130) ,
+	`firstName` varchar(130) ,
+	`gender` varchar(130) ,
+	`lastName` varchar(130) ,
+	`nin` varchar(130) ,
 	
 	`_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT 
 
@@ -74,5 +204,11 @@ INSERT INTO `educom_db`.`roles` (`role`, `_user`, `_id`) VALUES ('ADMIN', '1', 1
 
 
 
+
+-- relation 1:m classSubject Class - Subject
+ALTER TABLE `class` ADD COLUMN `classSubject` int(11)  REFERENCES subject(_id);
+
+-- relation 1:m subjectId Teacher - Subject
+ALTER TABLE `teacher` ADD COLUMN `subjectId` int(11)  REFERENCES subject(_id);
 
 

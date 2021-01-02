@@ -43,6 +43,9 @@ public class ClassBase implements RowMapper<Class>{
     private String classCode;
     private String className;
 	
+	// Relations classSubject
+	private String classSubject;
+	
 	
 	
 	@Override
@@ -54,6 +57,9 @@ public class ClassBase implements RowMapper<Class>{
 			obj.setClassCode(rs.getString("classCode"));
 			obj.setClassName(rs.getString("className"));
 			
+        	
+        	// Relations 1:m classSubject
+			obj.setClassSubject(rs.getString("classSubject"));
         	
 		}
 		catch(Exception e) {
@@ -88,6 +94,15 @@ public class ClassBase implements RowMapper<Class>{
 		this.className = className;
 	}
 	
+    
+    // Relations 1:m classSubject
+	public String getClassSubject() {
+		return classSubject;
+	}
+
+	public void setClassSubject(String classSubject) {
+		this.classSubject = classSubject;
+	}
     
     
     

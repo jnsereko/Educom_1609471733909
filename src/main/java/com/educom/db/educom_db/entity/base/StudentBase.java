@@ -40,11 +40,13 @@ public class StudentBase implements RowMapper<Student>{
 	private Long _id;
 	
 	// Attributes
+    private String address;
+    private String contact;
     private Date dob;
     private String email;
     private String firstName;
+    private String gender;
     private String lastName;
-    private Double phoneNumber;
 	
 	
 	
@@ -54,11 +56,13 @@ public class StudentBase implements RowMapper<Student>{
 		Student obj = new Student();
 		try {
 			obj.set_id(rs.getLong("id"));
+			obj.setAddress(rs.getString("address"));
+			obj.setContact(rs.getString("contact"));
 			obj.setDob(rs.getDate("dob"));
 			obj.setEmail(rs.getString("email"));
 			obj.setFirstName(rs.getString("firstName"));
+			obj.setGender(rs.getString("gender"));
 			obj.setLastName(rs.getString("lastName"));
-			obj.setPhoneNumber(rs.getDouble("phoneNumber"));
 			
         	
 		}
@@ -77,6 +81,22 @@ public class StudentBase implements RowMapper<Student>{
 		this._id = _id;
 	}
 	
+	public String getAddress() {
+		return address;
+	}
+
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getContact() {
+		return contact;
+	}
+
+
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
 	public Date getDob() {
 		return dob;
 	}
@@ -101,6 +121,14 @@ public class StudentBase implements RowMapper<Student>{
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+	public String getGender() {
+		return gender;
+	}
+
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	public String getLastName() {
 		return lastName;
 	}
@@ -108,14 +136,6 @@ public class StudentBase implements RowMapper<Student>{
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
-	public Double getPhoneNumber() {
-		return phoneNumber;
-	}
-
-
-	public void setPhoneNumber(Double phoneNumber) {
-		this.phoneNumber = phoneNumber;
 	}
 	
     

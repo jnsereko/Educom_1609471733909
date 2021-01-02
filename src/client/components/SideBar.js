@@ -25,7 +25,43 @@ export default class SideBar extends Component {
             <Text>Home</Text>
           </ListItem>
           {/* START MY SCREENS */}
- {/* END MY SCREENS */}
+ 
+          <ListItem onPress={() => this.props.navigation.navigate("ClassList")}>
+            <IconMaterial
+              name="keyboard-arrow-right"
+              size={20}
+              style={styles.icons}
+            />
+            <Text>List Class</Text>
+          </ListItem>
+          
+          <ListItem onPress={() => this.props.navigation.navigate("StudentList")}>
+            <IconMaterial
+              name="keyboard-arrow-right"
+              size={20}
+              style={styles.icons}
+            />
+            <Text>List Student</Text>
+          </ListItem>
+          
+          <ListItem onPress={() => this.props.navigation.navigate("SubjectList")}>
+            <IconMaterial
+              name="keyboard-arrow-right"
+              size={20}
+              style={styles.icons}
+            />
+            <Text>List Subject</Text>
+          </ListItem>
+          
+          <ListItem onPress={() => this.props.navigation.navigate("TeacherList")}>
+            <IconMaterial
+              name="keyboard-arrow-right"
+              size={20}
+              style={styles.icons}
+            />
+            <Text>List Teacher</Text>
+          </ListItem>
+          {/* END MY SCREENS */}
 
           <ListItem itemDivider />
           <ListItem onPress={() => this.props.navigation.navigate("Profile")}>

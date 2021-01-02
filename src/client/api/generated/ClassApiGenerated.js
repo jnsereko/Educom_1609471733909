@@ -26,6 +26,100 @@ class ClassApiGenerated {
 
   // CRUD METHODS
 
+  /**
+  * ClassService.create
+  *   @description CRUD ACTION create
+  *
+  */
+  static createClass(class) {
+    return axios.post(ClassApiGenerated.contextUrl, class )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * ClassService.delete
+  *   @description CRUD ACTION delete
+  *   @param ObjectId id Id
+  *
+  */
+  static deleteClass(id) {
+    return axios.delete(ClassApiGenerated.contextUrl + "/" + id)
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * ClassService.findByclassSubject
+  *   @description CRUD ACTION findByclassSubject
+  *   @param Objectid key Id of model to search for
+  *
+  */
+  static findByclassSubject(id) {
+    return axios.get(ClassApiGenerated.contextUrl + "/findByclassSubject/" + id )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * ClassService.get
+  *   @description CRUD ACTION get
+  *   @param ObjectId id Id resource
+  *
+  */
+  static getOneClass(id) {
+    return axios.get(ClassApiGenerated.contextUrl + "/" + id)
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * ClassService.list
+  *   @description CRUD ACTION list
+  *
+  */
+  static getClassList() {
+    return axios.get(ClassApiGenerated.contextUrl)
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * ClassService.update
+  *   @description CRUD ACTION update
+  *   @param ObjectId id Id
+  *
+  */
+  static saveClass(class) {
+    return axios.post(ClassApiGenerated.contextUrl + "/" + class._id, class )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
 
 
     // Custom APIs
